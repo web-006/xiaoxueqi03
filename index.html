@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>寻味之旅：探寻八大菜系</title>
+		<style>
+			body,
+			html {
+				margin: 0;
+				padding: 0;
+				font-family: Arial, sans-serif;
+				overflow: hidden;
+			}
+
+			.main-page {
+				height: 100vh;
+				background: url(shouye.jpg) no-repeat;
+				background-size: contain; /* 确保背景图完整显示 */
+				background-position: center; /* 居中显示 */
+			}
+
+			.footer {
+				position: fixed;
+				bottom: 20px;
+				text-align: center;
+				width: 100%;
+				opacity: 0.7;
+				cursor: pointer;
+				animation: arrowBlink 1s infinite;
+			}
+
+			.arrow-down {
+				width: 40px;
+				height: 40px;
+				border: solid black;
+				border-width: 0 5px 5px 0;
+				display: inline-block;
+				padding: 7px;
+				transform: rotate(45deg);
+				/* 保持箭头角度不变 */
+			}
+
+
+			@keyframes arrowBlink {
+
+				0%,
+				49.9% {
+					opacity: 0.7;
+				}
+
+				50%,
+				100% {
+					opacity: 0;
+				}
+			}
+
+			/* 新页面动画 */
+			.page-enter {
+				transform: translateY(-100%);
+				/* 修改为从顶部向上滑出 */
+				transition: transform 0.5s ease-in-out;
+			}
+			
+			.page-enter-active {
+				transform: translateY(0);
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="main-page" id="mainPage">
+			<div class="footer" onclick="navigateToSecondPage()">
+				<div class="arrow-down"></div>
+			</div>
+		</div>
+
+		<script>
+			function navigateToSecondPage() {
+				// 添加页面动画类
+				document.getElementById('mainPage').classList.add('page-enter');
+
+				// 模拟延时后跳转
+				setTimeout(function() {
+					window.location.href = 'map.html';
+				}, 500); // 等待动画完成后跳转
+			}
+		</script>
+
+	</body>
+</html>
